@@ -10,11 +10,16 @@ import UIKit
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
+    var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
-        return true
+        if #available(iOS 13.0, *) {
+                    return true
+                }
+        window = UIWindow()
+                window?.rootViewController = LoginViewController() // 초기 ViewController
+                window?.makeKeyAndVisible()
+                return true
     }
 
     // MARK: UISceneSession Lifecycle
@@ -31,6 +36,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
 
-
+    
 }
 
